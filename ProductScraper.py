@@ -76,6 +76,7 @@ class Scraper:
 
         for k, v in element_mapping.items():
             if v is None:
+                item_info[k] = None
                 continue
             handler = handlers.get(k, lambda element, key=k: process_default(element, key))
             handler(v)
@@ -118,4 +119,3 @@ if __name__ == '__main__':
     scraper = Scraper()
     scraped = scraper.scrape(url=urls[0])
     # scraped = scraper.scrape(url_list=urls)
-
